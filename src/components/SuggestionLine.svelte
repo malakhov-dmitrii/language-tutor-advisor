@@ -14,10 +14,10 @@
 	let loading = false;
 </script>
 
-<div class="relative group">
+<div class="relative group py-4">
 	<p
 		id={`line-${idx}`}
-		class={`hover:bg-slate-100 transition rounded-md px-4 border-l-4 bg-opacity-10 ${
+		class={`hover:bg-slate-100 my-0 transition rounded-md px-4 border-l-4 bg-opacity-10 ${
 			ratedLine
 				? ratedLine.markedGood
 					? 'bg-green-400 border-green-400'

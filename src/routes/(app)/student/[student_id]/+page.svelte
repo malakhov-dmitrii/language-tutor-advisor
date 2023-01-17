@@ -68,7 +68,9 @@
 		{#each message.reply.split('\n') as line, idx}
 			{@const ratedLine = student.ratedLines.find((ratedLine) => ratedLine.line === line)}
 
-			<SuggestionLine {ratedLine} {idx} {line} {student} />
+			{#if line.length}
+				<SuggestionLine {ratedLine} {idx} {line} {student} />
+			{/if}
 		{/each}
 		<hr />
 	{/each}
