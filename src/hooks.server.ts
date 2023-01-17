@@ -56,6 +56,7 @@ export const handle = SvelteKitAuth({
 							image: true
 						}
 					});
+
 					return user;
 				}
 

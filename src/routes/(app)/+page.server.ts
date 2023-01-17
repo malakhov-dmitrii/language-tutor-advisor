@@ -1,6 +1,34 @@
+import type { PageServerLoad } from './$types';
 import { getBasePrompt, openai } from '@/lib/openai';
 import { prisma } from '@/lib/prisma';
 import { fail, json, redirect, type Actions, type Handle } from '@sveltejs/kit';
+
+export const load: PageServerLoad = async (event) => {
+	const session = await event.locals.getSession();
+
+	if (session?.user?.email) {
+		const user = await prisma.user.findUnique({
+			where: {
+				email: session.user.email
+			}
+		});
+
+		if (!user) throw redirect(300, '/auth');
+
+		const savedStudents = await prisma.savedStudent.findMany({
+			where: {
+				userId: user.id
+			}
+		});
+
+		return {
+			session: session,
+			students: savedStudents
+		};
+	} else {
+		throw redirect(300, '/auth');
+	}
+};
 
 export const actions: Actions = {
 	default: async (event) => {

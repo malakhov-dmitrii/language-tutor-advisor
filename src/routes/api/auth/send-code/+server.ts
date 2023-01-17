@@ -45,6 +45,22 @@ export const POST = (async ({ request }) => {
 		}
 	});
 
+	const existingUser = await prisma.user.findUnique({
+		where: {
+			email
+		}
+	});
+
+	if (!existingUser) {
+		await prisma.user.create({
+			data: {
+				email,
+				name: email.split('@')[0],
+				image: `https://api.dicebear.com/5.x/croodles/svg?seed=${email.split('@')[0]}&scale=150`
+			}
+		});
+	}
+
 	const templateId = 'd-4005f293ce234587855bd5372fbfee61';
 	// Send the token to the user's email address
 
