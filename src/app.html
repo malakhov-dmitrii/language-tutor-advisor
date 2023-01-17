@@ -10,12 +10,24 @@
 </title>
 <meta name="description" content="This project allow to help the language tutors to find the best questions to ask their students.">
 
-		%sveltekit.head%
+<meta property="og:title" content="Tutor advisor app">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.noizer.one/">
+<meta property="og:image" content="https://www.noizer.one/img/logo-2.png">
+<meta property="og:description"
+	content="This project allow to help the language tutors to find the best questions to ask their students.">
+<meta property="og:site_name" content="Tutor advisor app">
+
+
+<link preload href="%sveltekit.assets%/icons/css/fontawesome.css" rel="stylesheet">
+<link preload href="%sveltekit.assets%/icons/css/brands.css" rel="stylesheet">
+<link preload href="%sveltekit.assets%/icons/css/solid.css" rel="stylesheet">
+%sveltekit.head%
+<script defer src="/stats/js/script.js" data-api="/stats/api/event" data-domain="noizer.one"></script>
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
 
-		<script defer data-domain="language-tutor-advisor.vercel.app" src="https://plausible.io/js/script.js"></script>
 
 	</body>
 </html>
