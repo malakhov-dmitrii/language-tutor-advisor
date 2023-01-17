@@ -5,6 +5,8 @@
 	import axios from 'axios';
 	import { signIn } from '@auth/sveltekit/client';
 	import { Button, Checkbox, Helper, Hr, Input, Label, Modal } from 'flowbite-svelte';
+	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
 	// import mixpanel from 'mixpanel-browser';
 
 	$: email = '';

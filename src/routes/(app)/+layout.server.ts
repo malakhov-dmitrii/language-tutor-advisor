@@ -12,7 +12,7 @@ export const load: LayoutServerLoad = async (event) => {
 			}
 		});
 
-		if (!user) throw redirect(300, '/auth');
+		if (!user) throw redirect(307, '/auth');
 
 		const savedStudents = await prisma.savedStudent.findMany({
 			where: {
@@ -25,6 +25,6 @@ export const load: LayoutServerLoad = async (event) => {
 			students: savedStudents
 		};
 	} else {
-		throw redirect(300, '/auth');
+		throw redirect(307, '/auth');
 	}
 };

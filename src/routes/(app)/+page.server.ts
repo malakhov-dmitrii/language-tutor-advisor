@@ -13,7 +13,7 @@ export const load: PageServerLoad = async (event) => {
 			}
 		});
 
-		if (!user) throw redirect(300, '/auth');
+		if (!user) throw redirect(307, '/auth');
 
 		const savedStudents = await prisma.savedStudent.findMany({
 			where: {
@@ -26,7 +26,7 @@ export const load: PageServerLoad = async (event) => {
 			students: savedStudents
 		};
 	} else {
-		throw redirect(300, '/auth');
+		throw redirect(307, '/auth');
 	}
 };
 
@@ -99,6 +99,6 @@ Make topics as specific as you can, and provide 2-3 opening phrases for each top
 			}
 		});
 
-		throw redirect(300, `/student/${student.id}`);
+		throw redirect(307, `/student/${student.id}`);
 	}
 };
